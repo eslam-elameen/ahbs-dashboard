@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]='searchEmployee' (ngSubmit)='onSubmit()'>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Employee Name</label>
+                        <br>
+                        <kendo-textbox formControlName="name" placeholder="Enter Name" [showSuccessIcon]="'initial'" [showErrorIcon]="'initial'"></kendo-textbox>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Department</label>
+                        <br>
+                        <kendo-dropdownlist [data]="listItems" placeholder="Select Department" formControlName='dep'>
+                        </kendo-dropdownlist>
+                    </div>
+                </div>
+
+                <button kendoButton class="mb-5 ml-3" type="submit">Search</button>
+
+            </div>
+        </form>
+    </div>
+    <kendo-grid [kendoGridBinding]="gridView" [pageSize]="5" [pageable]="true" [sortable]="false" [groupable]="true" [resizable]="true">
+        <!-- <kendo-grid-column-group title="Employee" [columnMenu]="false"> -->
+        <kendo-grid-column field="name" title="search" [width]="220">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <div class="customer-name">{{ dataItem.name }}</div>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="code" title="Department" [width]="220">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <div class="customer-name">{{ dataItem.code }}</div>
+            </ng-template>
+        </kendo-grid-column>
+        <!-- </kendo-grid-column-group> -->
+    </kendo-grid>
+</div>

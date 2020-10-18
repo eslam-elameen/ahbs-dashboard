@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]='addEmployee' (ngSubmit)='onSubmit()'>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Employee Name</label>
+                        <br>
+                        <kendo-textbox formControlName="name" placeholder="Enter Name" [showSuccessIcon]="'initial'" [showErrorIcon]="'initial'"></kendo-textbox>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Department</label>
+                        <br>
+                        <kendo-dropdownlist [data]="listItems" placeholder="Select Department" formControlName='dep'>
+                        </kendo-dropdownlist>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+
+                        <label>Code</label>
+                        <br>
+                        <kendo-textbox formControlName="code" placeholder="Enter Code" [showSuccessIcon]="'initial'" [showErrorIcon]="'initial'"></kendo-textbox>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Birth Date</label>
+                        <br>
+                        <kendo-datepicker formControlName="birthDate"></kendo-datepicker>
+                    </div>
+                </div>
+
+                <div class="col-10 row justify-content-between mt-3 ">
+                    <div class="form-group col-6 d-flex justify-content-between">
+                        <span class='text-bold'> Gender: </span>
+                        <div>
+                            <label class="k-label pr-3" [for]="male">Male</label>
+                            <input type="radio" name="gender" value="Male" #male formControlName="gender" kendoRadioButton />
+                        </div>
+                        <div>
+                            <label class="k-label pr-3" [for]="female">Female</label>
+                            <input type="radio" name="gender" value="Female" #female formControlName="gender" kendoRadioButton />
+                        </div>
+                    </div>
+                    <div class="col-3">
+
+                        <button kendoButton type="submit">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
